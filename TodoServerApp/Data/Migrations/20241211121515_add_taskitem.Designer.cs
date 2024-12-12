@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TodoServerApp.Data;
 
@@ -11,9 +12,11 @@ using TodoServerApp.Data;
 namespace TodoServerApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241211121515_add_taskitem")]
+    partial class add_taskitem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -232,14 +235,12 @@ namespace TodoServerApp.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("FinishDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -250,7 +251,7 @@ namespace TodoServerApp.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 12, 12, 22, 5, 32, 709, DateTimeKind.Local).AddTicks(6182),
+                            CreatedDate = new DateTime(2024, 12, 11, 17, 15, 14, 876, DateTimeKind.Local).AddTicks(6578),
                             Description = "Описание задачи 1",
                             Title = "Задача 1"
                         });
